@@ -1,19 +1,13 @@
-package com.lola.lang.parser;
+@file:JvmName("NumberSystemHelper")
+package com.lola.lang.parser
 
-public class NumberSystemHelper {
-    public static boolean isValidNumber(String text) {
-        text = text.toUpperCase();
-        int base = Integer.parseInt(text.substring(0, text.indexOf('X')));
-        String number = text.substring(text.indexOf('X') + 1);
-
-        for (char c : number.toCharArray()) {
-            int digit = Character.digit(c, base);
-            if (digit < 0 || digit >= base) {
-                return false;
-            }
-        }
-
-        return true;
+fun isValidNumber(text: String): Boolean {
+    val delIndex = text.indexOfFirst { it == 'x' || it == 'X' }
+    val base = text.substring(0, delIndex).toInt()
+    val number = text.substring(delIndex + 1)
+    for (c in number.toCharArray()) {
+        if (c < '0' || c >= '0' + base)
+            return false
     }
+    return true
 }
-
