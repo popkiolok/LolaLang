@@ -1,6 +1,8 @@
 grammar String;
 
-string: inlineString;
+string: inlineString | fakeMultilineString | multilineString;
+multilineString: '\'' multilineChar* '\'';
+fakeMultilineString: '"' multilineChar* '"';
 inlineString: '"' inlineChar* '"';
 
 inlineChar: inlineSpecial | OTHER;

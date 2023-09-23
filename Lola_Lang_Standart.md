@@ -44,10 +44,10 @@
 ```
 "C" # Character
 "String" 
-'Multi-line string.
-Line breaks are ignored by compiler'
-"Multi-line string. 
-Line breaks are not ignored."
+"Multi-line string.
+Line breaks are ignored by compiler"
+'Multi-line string. 
+Line breaks are not ignored.'
 "Hello, $name"
 "Bye, $name.toUpperCase()\"
 "1 + 1 is $1 + 1\\n"
