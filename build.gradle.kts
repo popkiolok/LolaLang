@@ -16,6 +16,10 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
+tasks.compileKotlin.configure {
+    dependsOn(tasks.generateGrammarSource)
+}
+
 tasks.test {
     useJUnitPlatform()
 }
