@@ -1,9 +1,11 @@
 grammar Variable;
 
-variable: MODE SPACE* (modifiers SPACE+)? name SPACE* (',' SPACE* name SPACE*)*
-          (':' SPACE* 'int' SPACE* /* TODO type description rule*/)? '=' SPACE* '4' /* TODO initialization code rule */;
+variable: mutability SPACE* (modifiers SPACE+)? name SPACE* (',' SPACE* name SPACE*)*
+          (':' SPACE* 'int' SPACE* /* TODO type description rule*/)? ('=' SPACE* '4')? /* TODO initialization code rule */;
 
-MODE: ('-'|'~');
+mutability: CONSTANT | VARIABLE;
+CONSTANT: '-';
+VARIABLE: '~';
 
 modifiers: PRIVATE | INTERNAL;
 PRIVATE: 'private';
