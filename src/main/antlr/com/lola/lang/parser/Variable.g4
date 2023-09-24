@@ -2,7 +2,7 @@ grammar Variable;
 
 import Commons, Type, Expression;
 
-variable: variableMutability SPACE* (variableModifiers SPACE+)? variableName SPACE* (',' SPACE* variableName SPACE*)*
+variableDeclaration: variableMutability SPACE* (variableModifiers SPACE+)? variableName SPACE* (',' SPACE* variableName SPACE*)*
           (':' SPACE* type SPACE*)? ('=' SPACE* inlineExpression)?;
 
 variableMutability: CONSTANT | VARIABLE;

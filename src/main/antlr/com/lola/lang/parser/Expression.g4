@@ -1,8 +1,8 @@
 grammar Expression;
 
-import Variable;
+import Variable, Function, Literal;
 
 expression: inlineExpression | fulllineExpression;
 
-inlineExpression: variableUsage;
-fulllineExpression: variableAssigment;
+fulllineExpression: variableDeclaration | variableAssigment;
+inlineExpression: variableUsage | functionDeclaration | literal;

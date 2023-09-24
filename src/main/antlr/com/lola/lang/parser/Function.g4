@@ -2,7 +2,7 @@ grammar Function;
 
 import Commons, Type, Expression;
 
-function: inlineFunction | multilineFunction;
+functionDeclaration: inlineFunction | multilineFunction;
 
 inlineFunction: description SPACE* '=>' SPACE* inlineExpression;
 multilineFunction: description SPACE* '\n' (('\t'|'    ') expression)+;
