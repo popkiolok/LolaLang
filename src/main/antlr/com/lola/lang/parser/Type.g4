@@ -1,7 +1,10 @@
 grammar Type;
 
-import Variable;
+import Commons;
 
-type: SIMPLE_TYPE;
+type: (typeModifiers SPACE+)? SIMPLE_NAME;
 
-SIMPLE_TYPE: SIMPLE_NAME;
+typeModifiers: MUTABLE | INTERNAL_MUTABLE | IMMUTABLE;
+MUTABLE: 'mutable';
+INTERNAL_MUTABLE: 'internal-mutable';
+IMMUTABLE: 'immutable';

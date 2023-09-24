@@ -1,23 +1,23 @@
 grammar Variable;
 
-import Type, Expression;
+import Commons, Type, Expression;
 
-variable: mutability SPACE* (modifiers SPACE+)? name SPACE* (',' SPACE* name SPACE*)*
-          (':' SPACE* type SPACE*)? ('=' SPACE* '4')? inlineExpression;
+variable: variableMutability SPACE* (variableModifiers SPACE+)? variableName SPACE* (',' SPACE* variableName SPACE*)*
+          (':' SPACE* type SPACE*)? ('=' SPACE* inlineExpression)?;
 
-mutability: CONSTANT | VARIABLE;
+variableMutability: CONSTANT | VARIABLE;
 CONSTANT: '-';
 VARIABLE: '~';
 
-modifiers: PRIVATE | INTERNAL;
+variableModifiers: PRIVATE | INTERNAL;
 PRIVATE: 'private';
 INTERNAL: 'internal';
 
-name: SIMPLE_NAME | SIMPLE_OPERATOR | specialOperator;
+variableName: SIMPLE_NAME | SIMPLE_OPERATOR | specialOperator;
 specialOperator: GET | SET;
 GET: '[]';
 SET: '[]=';
-SIMPLE_NAME: [a-zA-Z_][0-9a-zA-Z_]+;
 SIMPLE_OPERATOR: [+\-/*%!&|<>^~]+;
 
-SPACE: (' '|'\r'|'\n'|'\t');
+variableAssigment: SIMPLE_NAME SPACE* '=' SPACE* inlineExpression;
+variableUsage: SIMPLE_NAME;

@@ -1,6 +1,6 @@
 grammar Function;
 
-import Variable, Type, Expression;
+import Commons, Type, Expression;
 
 function: inlineFunction | multilineFunction;
 
