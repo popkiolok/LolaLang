@@ -1,7 +1,9 @@
 grammar Variable;
 
+import Type, Expression;
+
 variable: mutability SPACE* (modifiers SPACE+)? name SPACE* (',' SPACE* name SPACE*)*
-          (':' SPACE* 'int' SPACE* /* TODO type description rule*/)? ('=' SPACE* '4')? /* TODO initialization code rule */;
+          (':' SPACE* type SPACE*)? ('=' SPACE* '4')? inlineExpression;
 
 mutability: CONSTANT | VARIABLE;
 CONSTANT: '-';
@@ -15,7 +17,7 @@ name: SIMPLE_NAME | SIMPLE_OPERATOR | specialOperator;
 specialOperator: GET | SET;
 GET: '[]';
 SET: '[]=';
-SIMPLE_NAME: [a-zA-Z_][0-9a-zA-Z_]*;
+SIMPLE_NAME: [a-zA-Z_][0-9a-zA-Z_]+;
 SIMPLE_OPERATOR: [+\-/*%!&|<>^~]+;
 
 SPACE: (' '|'\r'|'\n'|'\t');

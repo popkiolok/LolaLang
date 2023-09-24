@@ -253,9 +253,12 @@ invokeTwo(=> a + b, => a - b)
                 <argN>)
 ```
 
-## Type Tokens
+## Types
 
-
+```
+# Простой тип, обозначает что объект должен реализовывать интерфейс type_name либо являться объектом типа type_name.
+type_name
+```
 
 ## Classes
 
